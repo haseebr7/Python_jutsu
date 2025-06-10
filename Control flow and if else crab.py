@@ -1,24 +1,29 @@
-# 4th part
-print("Welcome to Pizza Heart Liver")
+# 3rd part
+print("Welcome to this Roller Coster Ride")
 Bill=0
+height = int(input("What's your height? \n"))
 
-Size = input("Which size pizza do you want? S, M or L: \n")
-Pepperoni = input("Do you want pepperoni? Y/N: \n")
-Cheese = input("Do you want extra cheese? Y/N: \n")
+if height >= 120:
+    age = int(input("Good! You can ride but What's your age? \n"))
+    if age <= 12:
+        print("Your ticket is $5")
+        Bill += 5
+    elif 12 > age <=18:
+        print("Your ticket is $7")
+        Bill += 7
+    elif age > 18:
+        print("Your ticket is $12")
+        Bill += 12
 
-if Size == "S":
-    Bill += 15
-elif Size == "M":
-    Bill += 20
-elif Size == "L":
-    Bill += 25
+    Photo = input("Do you want photos as well? It would cost $3 extra. Y/N\n")
 
-if Pepperoni == "Y":
-    if Size == "S":
-        Bill += 2
-    else:
+    if Photo == "Y":
         Bill += 3
-if Cheese == "Y":
-    Bill += 3
 
-print(f"You final bill in {Bill}")
+    elif Photo == "N":
+        Bill += 0
+
+    print(f"Ok \nYour total bill is ${Bill}\nEnjoy the Ride.")
+
+else:
+    print("You can't ride! You better grow up.")
