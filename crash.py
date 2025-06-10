@@ -1,4 +1,5 @@
-# That was a task to make it workable
-# print("Number of letters in your name: " + len(input("Enter your name")))
+# (PEMDAS)BODMAS but left to right
 
-print("Number of letters in your name: " + str(len(input("Enter your name"))))
+print(3 * 3 + 3 / 3 - 3)
+
+print(5//3)
