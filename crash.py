@@ -1,2 +1,1 @@
-print("nothing to worry about")
-input("You: ")
+print("haseeb"[2])
