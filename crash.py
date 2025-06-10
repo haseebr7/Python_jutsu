@@ -1,4 +1,4 @@
-Var = 10
+Var = "haseeb"
 Var2 = 15.555
 Var3 = True
 
