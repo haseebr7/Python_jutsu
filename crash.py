@@ -1,5 +1,7 @@
-# (PEMDAS)BODMAS but left to right
+height = 1.65 
+weight = 84
 
-print(3 * 3 + 3 / 3 - 3)
+# Calculate the bmi using weight and height.
+bmi = weight / height**2
 
-print(5//3)
+print(bmi)
