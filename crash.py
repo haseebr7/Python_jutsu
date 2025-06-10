@@ -1,7 +1,6 @@
-height = 1.65 
-weight = 84
+Var = 10
+Var2 = 15.555
+Var3 = True
 
-# Calculate the bmi using weight and height.
-bmi = weight / height**2
-
-print(bmi)
+print("Numbers "+ str(Var))
+print(f"number {Var} {Var2} {Var3}")
