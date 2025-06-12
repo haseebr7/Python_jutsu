@@ -1,4 +1,4 @@
-#Faulty Code
+# Again Faulty code
 
 
 letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -19,23 +19,18 @@ Randomizer = [1,2,3]
 Calculate_password_digits = (Letter_input + Number_input + Symbol_input)
 print(Calculate_password_digits)
 
-for i in range(1,Calculate_password_digits):
+for i in range(1,Calculate_password_digits+1):
     Randomizer_choice = random.choice(Randomizer)
     if Randomizer_choice == 1:
-        for L in range(1, Letter_input+1):
-            Choice = random.choice(letters)
-            password += Choice
+        Choice = random.choice(letters)
+        password += str(Choice)
     elif Randomizer_choice == 2:
-        for N in range(1, Number_input+1):
-            Choice = random.choice(numbers)
-            password += Choice
+        Choice = random.choice(numbers)
+        password += str(Choice)
 
     elif Randomizer_choice == 3:
-        for S in range(1, Symbol_input+1):
-            Choice = random.choice(symbols)
-            password += Choice
+        Choice = random.choice(symbols)
+        password += str(Choice)
 
 
 print(password)
-
-
