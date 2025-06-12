@@ -1,36 +1,32 @@
-# Again Faulty code
-
+#Final Working Code
 
 letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "("]
 import random
 
-
 print("Welcome to Pygenerator")
-Letter_input = 3#int(input("How many letters you want?\n"))
-Number_input = 3#int(input("How many Number you want?\n"))
-Symbol_input = 1#int(input("How many Symbol you want?\n"))
-password = ""
+Letter_input = int(input("How many letters you want?\n"))
+Number_input = int(input("How many Number you want?\n"))
+Symbol_input = int(input("How many Symbol you want?\n"))
+password = []
 
-Randomizer = [1,2,3]
+for L in range(1, Letter_input+1):
+    Choice = random.choice(letters)
+    password += Choice
 
+for N in range(1, Number_input+1):
+    Choice = random.choice(numbers)
+    password += Choice
 
-Calculate_password_digits = (Letter_input + Number_input + Symbol_input)
-print(Calculate_password_digits)
+for S in range(1, Symbol_input+1):
+    Choice = random.choice(symbols)
+    password += Choice
 
-for i in range(1,Calculate_password_digits+1):
-    Randomizer_choice = random.choice(Randomizer)
-    if Randomizer_choice == 1:
-        Choice = random.choice(letters)
-        password += str(Choice)
-    elif Randomizer_choice == 2:
-        Choice = random.choice(numbers)
-        password += str(Choice)
+random.shuffle(password)
+Final=""
+for i in password:
+    Final += i
+print(Final)
 
-    elif Randomizer_choice == 3:
-        Choice = random.choice(symbols)
-        password += str(Choice)
-
-
-print(password)
+# Well, I think, I nailed it.
