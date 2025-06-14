@@ -6,7 +6,6 @@ def turn_left():
     
 
 
-
 def turn_right():
     turn_left()
     turn_left()
