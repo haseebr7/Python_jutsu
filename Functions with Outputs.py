@@ -1,6 +1,13 @@
-def format_name(f_name, l_name):
-    A = f_name.title()
-    B = l_name.title()
-    return f"{A} {B}"
+def is_leap_year(year):
+    if year % 4 == 0: #leap         
+        if year % 100 == 0: # not leap
+            if year % 400 == 0: #leap
+                return True
+            else:
+                return False
+        return True
+    else:
+        return False
 
-print(format_name("haseEb","ReYAn"))
+
+print(is_leap_year(2020))
