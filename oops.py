@@ -20,7 +20,7 @@ class Car:
         print(f"Engine On: {self.engine_on}")
 
 car1 =  Car("honda", "Red")
-speed = 1
+speed = 2
 
 while True:
     Yoo = input("info/acc(Accelerate)/start").lower()
