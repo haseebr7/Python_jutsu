@@ -1,7 +1,5 @@
 import random
-from random import choice
 from turtle import Turtle, Screen
-
 line = Turtle()
 line.speed("fastest")
 line.pensize(3)
