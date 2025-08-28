@@ -37,3 +37,4 @@ while Game_over:
             print("You are wrong")
             Game_over = False
     second_entry = data[num()]
+

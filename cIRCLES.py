@@ -12,7 +12,6 @@ def color():
     color_selector = (r, g, b)
     return color_selector
 
-
 tiny.speed("fastest")
 def gap_maker(gap_size):
     for i in range(int(360/gap_size)):
@@ -22,6 +21,6 @@ def gap_maker(gap_size):
         tiny.setheading(tiny.heading() + gap_size)
         gap_size
 
-gap_maker(5)
+gap_maker(70)
 screen = t.Screen()
 screen.exitonclick()

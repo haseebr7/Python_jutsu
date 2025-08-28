@@ -14,4 +14,4 @@ while True:
     timmy.left(150)
 print(timmy)
 print(screen.canvheight)
-screen.exitonclick()                                                  
+screen.exitonclick()
