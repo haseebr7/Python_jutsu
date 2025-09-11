@@ -38,8 +38,7 @@ while game_is_on:
         actual_score.game_over()
 
     for i in snake.segments[1:]:
-        # if i == snake.head:
-        #     pass
+
         if snake.head.distance(i) < 10:
             game_is_on = False
             actual_score.game_over()
