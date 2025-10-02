@@ -14,6 +14,7 @@ state_finder.title()
 game_on = True
 while game_on:
     input_state = screen.textinput(title= state_finder.title(), prompt="Enter the state Name").title()
+
     if input_state == "Exit":
         state_finder.missing_states()
         break
