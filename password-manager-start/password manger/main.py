@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 import random
 import pyperclip
+import json
 
 FONT_NAME = "Courier"
 password = ""
@@ -27,6 +28,26 @@ def pass_gen():
     password = "".join(password_list)
     pass_entry.insert(0,string=password)
     pyperclip.copy(password)
+# ---------------------------- SEARCH PASSWORD ------------------------------- #
+def search_password():
+    website = website_entry.get()
+    try:
+        with open("data.json","r") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        messagebox.showerror(title="Error", message="No data file found")
+
+    else:
+        # if website in data:
+        try:
+            searched_email = data[website]["email"]
+            searched_password = data[website]["password"]
+            messagebox.showinfo(title=f"{website} login info",message= f"You email: {searched_email}\nYour password: {searched_password}")
+
+
+        except KeyError:
+            messagebox.showerror(title="Error", message="No info found for this Website")
+
 
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
@@ -34,16 +55,31 @@ def save():
     website = website_entry.get()
     email = email_entry.get()
     password = pass_entry.get()
+    new_data = {
+        website:{
+            "email": email,
+            "password": password,
+        }
+    }
 
     if website == "" or password == "" or email == "" or len(password) < 8:
 
         messagebox.showwarning(title="Warning", message="Pls fill the Fields Correctly!")
     else:
-        is_it = messagebox.askokcancel(title="Confirmation", message= f"So you wanna save \n{website} as website \n{email}as email\n{password} as password.\nRight naah?")
+       try:
 
-        if is_it:
-            with open("data.txt", "a") as file:
-                file.write(f"{website},{email},{password}\n")
+            with open("data.json","r") as file:
+                data = json.load(file)
+
+       except FileNotFoundError:
+            with open("data.json","w") as file:
+                json.dump(new_data,file,indent=4)
+       else:
+            data.update(new_data)
+
+            with open("data.json", "w") as file:
+                json.dump(data,file,indent=4)
+       finally:
             website_entry.delete(0,END)
             pass_entry.delete(0,END)
 
@@ -51,11 +87,15 @@ def save():
 window = Tk()
 window.title("Donno")
 window.config(pady=50,padx=50)
+# window.tk.call('tk', 'scaling', 1.0)
+# window.columnconfigure(0, weight=1)
+# window.rowconfigure(0, weight=1)
+
 
 canvas = Canvas(width=200,height=200)
 lock_img = PhotoImage(file="logo.png")
 canvas.create_image(100,100,image=lock_img)
-canvas.grid(column=1,row=0,columnspan=3)
+canvas.grid(column=1,row=0)
 
 
 #labels
@@ -71,8 +111,8 @@ pass_text.grid(column=0,row=3)
 
 #Entry
 
-website_entry = Entry(width=35)
-website_entry.grid(column=1,row=1,columnspan=2)
+website_entry = Entry(width=21)
+website_entry.grid(column=1,row=1)
 website_entry.focus()
 
 email_entry = Entry(width=35)
@@ -91,6 +131,9 @@ pass_button.grid(column=2,row=3)
 
 add_button = Button(text="ADD",width=35,command=save)
 add_button.grid(column=1,row=4,columnspan=2)
+
+search_button = Button(text="Search",command=search_password)
+search_button.grid(column=2,row=1)
 
 
 window.mainloop()
